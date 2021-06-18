@@ -13,22 +13,28 @@ class MainController extends AbstractController
      */
     public function homepage(): Response
     {
-        return $this->render('main/index.html.twig', [
+        return $this->render('main/homepage.html.twig', [
             'controller_name' => 'MainController',
         ]);
     }
-       /**
-     * @Route("/mountain", name="mountain")
+
+      /**
+     * @Route("/montagnes", name="mountains")
      */
-    public function montain(): Response
+    public function mountains(): Response
     {
-        return $this->render('main/mountain.html.twig');
+        return $this->render('main/mountains.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
     }
-       /**
-     * @Route("/beach", name="beach")
+
+      /**
+     * @Route("/plage, name="beachs")
      */
-    public function beach(): Response
+    public function beachs(): Response
     {
-        return $this->render('main/beach.html.twig');
+        return $this->render('main/beachs.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
     }
 }
