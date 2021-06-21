@@ -3,18 +3,16 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<h1> Bienvenue sur la météo des plages </h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/html/sp_symfo/symfony_exo_weather/weather/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/html/sp_symfo/symfony_exo_weather/weather/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
+
+{% for city_key, city_info in weather_list %}
+<div class="item item--bg-{{ city_info.weather }}">
+    <div class="item--city"><a href="">{{ city_info.city }}</a></div>
+    <div class="item--forecast">{{ city_info.date }} : {{ city_info.min }}°C / {{ city_info.max }}°C</div>
 </div>
+
+{% endfor %}
+
 {% endblock %}

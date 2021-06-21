@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Model\WeatherModel;
 
 class MainController extends AbstractController
 {
@@ -13,28 +14,25 @@ class MainController extends AbstractController
      */
     public function homepage(): Response
     {
+        $weatherList = WeatherModel::getWeatherData() ;
         return $this->render('main/homepage.html.twig', [
-            'controller_name' => 'MainController',
+            'weather_list' => $weatherList,
         ]);
     }
 
-      /**
-     * @Route("/montagnes", name="mountains")
+     /**
+     * @Route("/montagnes", name="mountain")
      */
-    public function mountains(): Response
+    public function mountain(): Response
     {
-        return $this->render('main/mountains.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
+        return $this->render('main/mountain.html.twig');
     }
 
-      /**
-     * @Route("/plage, name="beachs")
+     /**
+     * @Route("/plage", name="beach")
      */
-    public function beachs(): Response
+    public function beach(): Response
     {
-        return $this->render('main/beachs.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
+        return $this->render('main/beach.html.twig');
     }
 }
