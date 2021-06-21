@@ -1,5 +1,7 @@
 <?php
-
+/*
+    ce fichier sert à re-générer les données du tableau de WeatherModel
+*/
 $cities = [
     'Annecy',
     'Biarritz',

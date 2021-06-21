@@ -38,14 +38,14 @@
                 {# à droite le contenu du widget #}
                 <div id="widget" class="col-3">
                     {# on met la ville dans une variable pour des raisons de praticité #}
-                    {% set selected_city = app.session.get('selected_city') %}
-                    {% if selected_city is null %}
+                    {% set selectedCity = app.session.get('selected_city') %}
+                    {% if selectedCity is null %}
                     Sélectionnez une ville dans la liste de gauche
-                    {% else %}
-                        <p><b>{{ selected_city.city }}</b></p>
-                        <p>{{ selected_city.date }}</p>
-                        <p><img src="{{ asset('images/' ~ selected_city.weather ~ '.png') }}"></p>
-                        <p>{{ selected_city.min }}°C / {{ selected_city.max }}°C</p>
+                      {% else %}
+                        <p><b>{{ selectedCity.city }}</b></p>
+                        <p>{{ selectedCity.date }}</p>
+                        <p><img src="{{ asset('images/' ~ selectedCity.weather ~ '.png') }}"></p>
+                        <p>{{ selectedCity.min }}°C / {{ selectedCity.max }}°C</p>
                     {% endif %}
                 </div>
             </div>

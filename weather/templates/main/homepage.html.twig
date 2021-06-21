@@ -4,12 +4,12 @@
 
 {% block body %}
 
-<h1> Bienvenue sur la météo des plages </h1>
+<h1> Bienvenue sur la météo des villes </h1>
 
 
-{% for city_key, city_info in weather_list %}
+{% for city_id, city_info in weather_list %}
 <div class="item item--bg-{{ city_info.weather }}">
-    <div class="item--city"><a href="">{{ city_info.city }}</a></div>
+    <div class="item--city"><a href="{{ path('select_city', {id : city_id}) }}">{{ city_info.city }}</a></div>
     <div class="item--forecast">{{ city_info.date }} : {{ city_info.min }}°C / {{ city_info.max }}°C</div>
 </div>
 
